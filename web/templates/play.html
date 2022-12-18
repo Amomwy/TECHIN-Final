@@ -1,51 +1,52 @@
-<link rel="stylesheet" href="styles.css" type="text/css" />
+<!doctype html>
+<html lang="en">
 
-<div class="wrapper">
-  
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css"/>
+    <title>Tic Tac Toe</title>
+</head>
 
-    
-    <div class="container">
-      
-      <div class="game">
-        
-        <div class="row top">
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-        </div> <!-- end-row -->
-  
-        <div class="row middle">
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-        </div> <!-- end-row -->
-  
-        <div class="row bottom">
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-        </div> <!-- end-row -->
-        
-      </div> <!-- end-game -->
-      
-      <div class="scores">
-        <div class="row">
-          <div class="col p">
-            <h2>Player - <span class="char">X</span></h2>
-            <u>0</u>
-          </div>
-          <div class="col ties">
-            <h2>Ties</h2>
-            <u>0</u>
-          </div>
-          <div class="col com">
-            <h2>Computer - <span class="char">O</span></h2>
-            <u>0</u>
-          </div>
-        </div>
-      </div>
-      <!-- end-scores -->
-      
-    </div> <!-- end-container -->
-    
-  </div> <!-- end-wrapper -->
+<body>
+    <div class="wrapper">
+        <div class="container">
+
+          <div class="game">
+
+            <div class="row top">
+              <div id="col0" data-cell-index="0" class="col"></div>
+              <div id="col1" data-cell-index="1" class="col"></div>
+              <div id="col2" data-cell-index="2" class="col"></div>
+            </div> <!-- end-row -->
+
+            <div class="row middle">
+              <div id="col3" data-cell-index="3" class="col"></div>
+              <div id="col4" data-cell-index="4" class="col"></div>
+              <div id="col5" data-cell-index="5" class="col"></div>
+            </div> <!-- end-row -->
+
+            <div class="row bottom">
+              <div id="col6" data-cell-index="6" class="col"></div>
+              <div id="col7" data-cell-index="7" class="col"></div>
+              <div id="col8" data-cell-index="8" class="col"></div>
+            </div> <!-- end-row -->
+
+          </div> <!-- end-game -->
+            <h2 class="game--status"></h2>
+            <button class="game--restart">Restart Game</button>
+            <button class="return-menu">Return to Main Menu</button>
+        </div> <!-- end-container -->
+
+    </div> <!-- end-wrapper -->
+
+    <script id="game_mode_variable">
+        {{ game_config['game_mode'] }}
+    </script>
+    <script id="player_1_name_variable">
+        {{ game_config['player_1_name'] }}
+    </script>
+    <script id="player_2_name_variable">
+        {{ game_config['player_2_name'] }}
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/play.js') }}"></script>
+
+</body>
